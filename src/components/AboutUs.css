@@ -1,0 +1,196 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section {
+  background-color: white;
+  padding: 2rem 1rem;
+ 
+}
+
+
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 1.75rem; 
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  background: #a8b0a2;
+  color: #151515;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 1);
+}
+.title{
+  display: block;
+  font-size: 3.75rem; 
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+ 
+  color: #151515;
+}
+
+.title:hover {
+  transition: color 0.3s ease;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 1); /* Change title color on hover */
+}
+
+.section-text {
+  font-size: 1rem;
+  color: #4a4a4a;
+  line-height: 1.75;
+  transition: color 0.3s ease;
+  
+}
+
+.section-text:hover {
+  color: #333; /* Darken text color on hover */
+}
+
+.section-image {
+  max-width: 100%;
+  border-radius: 10%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.section-image:hover {
+  transform: scale(1.05); /* Slightly zoom in image on hover */
+  opacity: 0.9; /* Slight fade effect on hover */
+}
+
+.column {
+  width: 100%;
+  padding: 1rem 0;
+  
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px dotted black;
+  border-radius: 0.5rem;
+  background: #cfd4c9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for section */
+}
+.flex-row:hover {
+  transform: translateY(-10px); /* Lift section slightly on hover */
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 1); /* Add shadow on hover */
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-text {
+    font-size: 0.875rem;
+  }
+
+  .column {
+    padding: 0.5rem;
+  }
+
+  .section-image {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .flex-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .column {
+    width: 50%;
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .section-text {
+    font-size: 1.125rem;
+  }
+
+  .column {
+    padding: 0 2rem;
+  }
+
+  .section-image {
+    margin-left: auto; 
+  }
+
+  .flex-row-reverse {
+    flex-direction: row-reverse; 
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-content {
+    max-width: 1400px;
+  }
+
+  .section-title {
+    font-size: 3.5rem;
+  }
+
+  .section-text {
+    font-size: 1.25rem;
+  }
+
+  .column {
+    padding: 0 3rem;
+  }
+
+  .section {
+    padding: 5rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .section-text {
+    font-size: 0.7rem;
+  }
+
+  .column {
+    padding: 0.25rem;
+  }
+
+  .section-image {
+    margin-bottom: 0.5rem;
+  }
+}
