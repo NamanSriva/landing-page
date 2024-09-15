@@ -1,15 +1,11 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules"; 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay"; 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Box from "@mui/material/Box";
 import slide1 from "../assets/slide1.jpg";
 import slide2 from "../assets/slide2.jpg";
 import slide3 from "../assets/slide3.jpg";
-
 
 const MyCollection = [
   {
@@ -26,45 +22,84 @@ const MyCollection = [
   },
 ];
 
+// Custom arrow components
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "black", // Customize arrow appearance
+        borderRadius: "50%",
+        margin:"20px",
+        padding: "20px",
+        zIndex: 1,
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "black", // Customize arrow appearance
+        borderRadius: "50%",
+        margin:"20px",
+        padding: "20px",
+        zIndex: 1,
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
 const HeroSection = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: <PrevArrow />, // Custom left arrow
+    nextArrow: <NextArrow />, // Custom right arrow
+  };
+
   return (
     <Box
       sx={{
-        width: "100%", 
-        height: "100vh", 
-        margin: "0", 
-        padding: "0", 
-        overflow: "hidden", 
+        width: "100%",
+        height: "100vh",
+        margin: "0",
+        padding: "0",
+        overflow: "hidden",
       }}
     >
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]} 
-        spaceBetween={0} 
-        slidesPerView={1} 
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{
-          delay: 3000, 
-          disableOnInteraction: false, 
-        }}
-        style={{ height: "100%" }} 
-      >
+      <Slider {...settings}>
         {MyCollection.map((item) => (
-          <SwiperSlide key={item.label}>
-            <Box
-              component="img"
-              sx={{
-                width: "100%", 
-                height: "100vh", 
-                objectFit: "cover", 
-                display: "block", 
-              }}
-              src={item.imgPath}
-              alt={item.label}
-            />
-          </SwiperSlide>
+          <Box
+            key={item.label}
+            component="img"
+            sx={{
+              width: "100%",
+              height: "100vh",
+              objectFit: "cover",
+              display: "block",
+            }}
+            src={item.imgPath}
+            alt={item.label}
+          />
         ))}
-      </Swiper>
+      </Slider>
     </Box>
   );
 };
